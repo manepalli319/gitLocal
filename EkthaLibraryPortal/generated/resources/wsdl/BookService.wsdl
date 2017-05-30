@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BookService" targetNamespace="http://service.bookservice.library.ektha.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.bookservice.library.ektha.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.bookservice.library.ektha.com/" schemaLocation="BookService_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getBookByAuthor">
+    <wsdl:part name="parameters" element="tns:getBookByAuthor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addBookResponse">
+    <wsdl:part name="parameters" element="tns:addBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookByCategory">
+    <wsdl:part name="parameters" element="tns:getBookByCategory">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookByCategoryResponse">
+    <wsdl:part name="parameters" element="tns:getBookByCategoryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addBook">
+    <wsdl:part name="parameters" element="tns:addBook">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookByAuthorResponse">
+    <wsdl:part name="parameters" element="tns:getBookByAuthorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BookService">
+    <wsdl:operation name="getBookByAuthor">
+      <wsdl:input name="getBookByAuthor" message="tns:getBookByAuthor">
+    </wsdl:input>
+      <wsdl:output name="getBookByAuthorResponse" message="tns:getBookByAuthorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBook">
+      <wsdl:input name="addBook" message="tns:addBook">
+    </wsdl:input>
+      <wsdl:output name="addBookResponse" message="tns:addBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBookByCategory">
+      <wsdl:input name="getBookByCategory" message="tns:getBookByCategory">
+    </wsdl:input>
+      <wsdl:output name="getBookByCategoryResponse" message="tns:getBookByCategoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BookServiceSoapBinding" type="tns:BookService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBookByAuthor">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBookByAuthor">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBookByAuthorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBook">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addBook">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBookByCategory">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBookByCategory">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBookByCategoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BookService">
+    <wsdl:port name="BookServiceImplPort" binding="tns:BookServiceSoapBinding">
+      <soap:address location="http://localhost:8080/EkthaLibraryPortal/services/BookService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

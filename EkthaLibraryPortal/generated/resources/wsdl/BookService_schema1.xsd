@@ -1,0 +1,65 @@
+<xs:schema xmlns:tns="http://service.bookservice.library.ektha.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://service.bookservice.library.ektha.com/" version="1.0">
+
+  <xs:element name="Book" type="tns:book"/>
+
+  <xs:element name="addBook" type="tns:addBook"/>
+
+  <xs:element name="addBookResponse" type="tns:addBookResponse"/>
+
+  <xs:element name="getBookByAuthor" type="tns:getBookByAuthor"/>
+
+  <xs:element name="getBookByAuthorResponse" type="tns:getBookByAuthorResponse"/>
+
+  <xs:element name="getBookByCategory" type="tns:getBookByCategory"/>
+
+  <xs:element name="getBookByCategoryResponse" type="tns:getBookByCategoryResponse"/>
+
+  <xs:complexType name="getBookByAuthor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBookByAuthorResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:book"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="book">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="author" type="xs:string"/>
+      <xs:element minOccurs="0" name="category" type="xs:string"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="isbn" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="price" type="xs:double"/>
+      <xs:element minOccurs="0" name="yearOfPublish" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addBook">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Book" type="tns:book"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addBookResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBookByCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBookByCategoryResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:book"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
